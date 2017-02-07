@@ -11,6 +11,7 @@ class Et < Formula
   depends_on "libgcrypt"
   depends_on "glog"
   depends_on "gflags"
+  depends_on "boost"
 
   def install
     system "cmake", ".", *std_cmake_args
