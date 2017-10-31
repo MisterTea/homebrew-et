@@ -15,7 +15,7 @@ class Et < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    etc.install 'et/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
+    etc.install 'etc/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
   end
 
   plist_options :startup => true
