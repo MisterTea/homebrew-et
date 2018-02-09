@@ -4,6 +4,7 @@ class Et < Formula
   url "https://github.com/MisterTea/EternalTCP/archive/et-v4.2.0.tar.gz"
   version "4.2.0"
   sha256 "42372f64bacaecffcdfe3676e631a32481043e0ff0412aaf7548bf27839b5c82"
+  revision 1
 
   depends_on "cmake" => :build
 
@@ -20,7 +21,7 @@ class Et < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
