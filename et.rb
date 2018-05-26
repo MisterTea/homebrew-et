@@ -1,9 +1,9 @@
 class Et < Formula
   desc "Remote terminal with IP roaming"
   homepage "https://mistertea.github.io/EternalTerminal/"
-  url "https://github.com/MisterTea/EternalTerminal/archive/et-v5.0.2.tar.gz"
-  version "5.0.2"
-  sha256 "31447688b79af6c6b8f4ffdf77de7ba14f21c1b7df791557db2268ca503d0863"
+  url "https://github.com/MisterTea/EternalTerminal/archive/et-v5.0.3.tar.gz"
+  version "5.0.3"
+  sha256 "c9814ce2cacfacde899fee249a61879200b58853d121e31b6e5afd6954d933f8"
   revision 1
 
   depends_on "cmake" => :build
@@ -14,7 +14,7 @@ class Et < Formula
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "make", "-j4", "install"
     etc.install 'etc/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
   end
 
