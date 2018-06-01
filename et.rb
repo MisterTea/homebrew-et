@@ -4,7 +4,7 @@ class Et < Formula
   url "https://github.com/MisterTea/EternalTerminal/archive/et-v5.0.7.tar.gz"
   version "5.0.7"
   sha256 "6c05fcf34a108d7d990a9a0eddfa6667f8bfb012e1f542c07d216fa01ececb36"
-  revision 1
+  revision 2
 
   depends_on "cmake" => :build
 
@@ -41,9 +41,9 @@ class Et < Formula
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardErrorPath</key>
-      <string>/tmp/et_err</string>
+      <string>/tmp/etmasterserver_err</string>
       <key>StandardOutPath</key>
-      <string>/tmp/et_err</string>
+      <string>/tmp/etmasterserver_out</string>
       <key>HardResourceLimits</key>
       <dict>
         <key>NumberOfFiles</key>
