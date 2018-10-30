@@ -1,10 +1,10 @@
 class Et < Formula
   desc "Remote terminal with IP roaming"
   homepage "https://mistertea.github.io/EternalTerminal/"
-  url "https://github.com/MisterTea/EternalTerminal/archive/et-v5.1.7.tar.gz"
+  url "https://github.com/MisterTea/EternalTerminal/archive/et-v5.1.8.tar.gz"
   head "https://github.com/MisterTea/EternalTerminal.git"
-  version "5.1.7"
-  sha256 "bec9d0f6157583bc947f01207c7fa42c24652656b4f19ad3643e82fd642fe03e"
+  version "5.1.8"
+  sha256 "da30ae120fd5bda3939909c27a91a857f23cfe0648b7e3905dfb0b89f91a82e8"
   revision 1
 
   depends_on "cmake" => :build
