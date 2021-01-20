@@ -11,6 +11,7 @@ class Et < Formula
 
   depends_on "protobuf"
   depends_on "libsodium"
+  depends_on "openssl"
 
   def install
     system "cmake", ".", *std_cmake_args
