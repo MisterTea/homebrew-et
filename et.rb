@@ -13,6 +13,7 @@ class Et < Formula
   depends_on "openssl"
 
   def install
+    ENV["VCPKG_FORCE_SYSTEM_BINARIES"] = "1"
     system "cmake", ".", *std_cmake_args
     system "make", "-j4", "install"
     etc.install 'etc/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
