@@ -9,7 +9,9 @@ class Et < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+  depends_on "unzip" => :build
   depends_on "pkg-config" => :build
+  depends_on "curl"
   depends_on "openssl"
 
   def install
