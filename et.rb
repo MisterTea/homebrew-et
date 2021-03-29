@@ -5,18 +5,18 @@ class Et < Formula
   head "https://github.com/MisterTea/EternalTerminal.git"
   version "6.1.3"
   sha256 "5eb76a6667b7c8ba13b5cb089221e5fe237e5dde164956af8720ed11a9a38dcd"
-  revision 2
+  revision 3
 
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
-  depends_on "unzip" => :build
   depends_on "pkg-config" => :build
   depends_on "curl"
   depends_on "openssl"
+  depends_on "protobuf"
+  depends_on "libsodium"
 
   def install
     ENV["VCPKG_FORCE_SYSTEM_BINARIES"] = "1"
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DDISABLE_VCPKG:BOOL=ON", *std_cmake_args
     system "make", "-j4", "install"
     etc.install 'etc/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
   end
