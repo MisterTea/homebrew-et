@@ -1,11 +1,11 @@
 class Et < Formula
   desc "Remote terminal with IP roaming"
   homepage "https://mistertea.github.io/EternalTerminal/"
-  url "https://github.com/MisterTea/EternalTerminal/archive/et-v6.1.3.tar.gz"
+  url "https://github.com/MisterTea/EternalTerminal/archive/et-v6.1.6.tar.gz"
   head "https://github.com/MisterTea/EternalTerminal.git"
-  version "6.1.3"
-  sha256 "5eb76a6667b7c8ba13b5cb089221e5fe237e5dde164956af8720ed11a9a38dcd"
-  revision 3
+  version "6.1.6"
+  sha256 "09d45df5c79104365b2826b9f9e3c3fdd0071b95b39711461c3077ebf99ac4cd"
+  revision 1
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
