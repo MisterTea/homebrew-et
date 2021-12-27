@@ -4,7 +4,7 @@ class Et < Formula
   url "https://github.com/MisterTea/EternalTerminal/archive/et-v6.1.9.tar.gz"
   head "https://github.com/MisterTea/EternalTerminal.git"
   version "6.1.9"
-  sha256 "b4565fdb3cdf6adb0e250076df1f581b6ef19f7b5318db8e2aeee45961129b08"
+  sha256 "b0b758ee57c53d82a4908b12e182bb61778ed685750c61304f0aa99ff174bd8d"
   revision 1
 
   depends_on "cmake" => :build
