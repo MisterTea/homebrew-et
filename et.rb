@@ -16,7 +16,7 @@ class Et < Formula
 
   def install
     ENV["VCPKG_FORCE_SYSTEM_BINARIES"] = "1"
-    system "cmake", ".", "-DDISABLE_VCPKG:BOOL=ON", *std_cmake_args
+    system "cmake", ".", "-DDISABLE_VCPKG:BOOL=ON", "-DPYTHON_EXECUTABLE=/usr/bin/python3", *std_cmake_args
     system "make", "-j4", "install"
     etc.install 'etc/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
   end
