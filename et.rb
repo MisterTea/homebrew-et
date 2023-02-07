@@ -5,7 +5,7 @@ class Et < Formula
   head "https://github.com/MisterTea/EternalTerminal.git"
   version "6.2.4"
   sha256 "95cfb79bc2f25d19eb84ca3c28dba860bb52b3750334d373adeb2cd061de6ba6"
-  revision 1
+  revision 2
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -21,45 +21,12 @@ class Et < Formula
     etc.install 'etc/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
   end
 
-  plist_options :startup => true
-
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/etserver</string>
-        <string>--cfgfile</string>
-        <string>#{etc}/et.cfg</string>
-        <string>--daemon</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <false/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>/tmp/etmasterserver_err</string>
-      <key>StandardOutPath</key>
-      <string>/tmp/etmasterserver_out</string>
-      <key>HardResourceLimits</key>
-      <dict>
-        <key>NumberOfFiles</key>
-        <integer>4096</integer>
-      </dict>
-      <key>SoftResourceLimits</key>
-      <dict>
-        <key>NumberOfFiles</key>
-        <integer>4096</integer>
-      </dict>
-    </dict>
-    </plist>
-    EOS
+  service do
+    run ["#{opt_bin}/etserver", "--cfgfile", "#{etc}/et.cfg", "--daemon"]
+    keep_alive false
+    working_dir "#{HOMEBREW_PREFIX}"
+    error_log_path "/tmp/etmasterserver_err"
+    require_root true
   end
 
   test do
