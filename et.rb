@@ -26,6 +26,7 @@ class Et < Formula
     keep_alive false
     working_dir "#{HOMEBREW_PREFIX}"
     error_log_path "/tmp/etmasterserver_err"
+    log_path "/tmp/etmasterserver_out"
     require_root true
   end
 
