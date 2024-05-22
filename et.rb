@@ -18,7 +18,7 @@ class Et < Formula
     ENV["VCPKG_FORCE_SYSTEM_BINARIES"] = "1"
     system "cmake", ".", "-DDISABLE_VCPKG:BOOL=ON", "-DPYTHON_EXECUTABLE=/usr/bin/python3", *std_cmake_args
     system "make", "install"
-    etc.install 'etc/et.cfg' => 'et.cfg' unless File.exists? etc+'et.cfg'
+    etc.install 'etc/et.cfg' => 'et.cfg' unless File.exist? etc+'et.cfg'
   end
 
   service do
