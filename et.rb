@@ -5,7 +5,7 @@ class Et < Formula
   head "https://github.com/MisterTea/EternalTerminal.git"
   version "6.2.8"
   sha256 "6c1a23a2fe9229a882622378126d4482ae67328a5ca8ef660f14034401711764"
-  revision 1
+  revision 2
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
