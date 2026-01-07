@@ -5,7 +5,7 @@ class Et < Formula
   head "https://github.com/MisterTea/EternalTerminal.git"
   version "6.2.11"
   sha256 "e8e80800babc026be610d50d402a8ecbdfbd39e130d1cfeb51fb102c1ad63b0f"
-  revision 1
+  revision 2
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -26,7 +26,7 @@ class Et < Formula
   end
 
   service do
-    run ["#{opt_bin}/etserver", "--cfgfile", "#{etc}/et.cfg", "--daemon"]
+    run ["#{opt_bin}/etserver", "--cfgfile", "#{etc}/et.cfg"]
     keep_alive false
     working_dir "#{HOMEBREW_PREFIX}"
     error_log_path "/tmp/etmasterserver_err"
