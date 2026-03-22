@@ -15,12 +15,9 @@ class Et < Formula
 
   depends_on "curl"
   depends_on "openssl"
-  depends_on "protobuf"
-  depends_on "libsodium"
 
   def install
-    ENV["VCPKG_FORCE_SYSTEM_BINARIES"] = "1"
-    system "cmake", ".", "-DDISABLE_VCPKG:BOOL=ON", "-DPYTHON_EXECUTABLE=/usr/bin/python3", *std_cmake_args
+    system "cmake", ".", "-DPYTHON_EXECUTABLE=/usr/bin/python3", *std_cmake_args
     system "make", "install"
     etc.install 'etc/et.cfg' => 'et.cfg' unless File.exist? etc+'et.cfg'
   end
