@@ -8,7 +8,7 @@ class Et < Formula
   url "https://github.com/MisterTea/EternalTerminal/archive/refs/tags/et-v7.0.0.tar.gz"
   sha256 "3580962861589c0b69efd6b385ff92ad8fdf688c91d1a0edc1a83278205e28e8"
   head "https://github.com/MisterTea/EternalTerminal.git"
-  revision 1
+  revision 2
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -24,8 +24,13 @@ class Et < Formula
 
   def install
     ENV["VCPKG_FORCE_SYSTEM_BINARIES"] = "1"
-    system "cmake", ".", "-DDISABLE_VCPKG:BOOL=ON", "-DPYTHON_EXECUTABLE=/usr/bin/python3", *std_cmake_args
+    system "cmake", ".", "-DDISABLE_VCPKG:BOOL=ON",
+           "-DINSTALL_BASH_COMPLETION:BOOL=OFF",
+           "-DINSTALL_ZSH_COMPLETION:BOOL=OFF",
+           "-DPYTHON_EXECUTABLE=/usr/bin/python3", *std_cmake_args
     system "make", "install"
+    bash_completion.install "scripts/et-completion.bash" => "et"
+    zsh_completion.install "scripts/et-completion.zsh" => "_et"
     etc.install "etc/et.cfg" => "et.cfg" unless File.exist? "#{etc}et.cfg"
   end
 
